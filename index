@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Solicitações a Equipe Multidisciplinar - Multipeg</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			background-color: #F8F8F8;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			color: #444444;
+		}
+		h1 {
+			color: #9E1D21;
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+		form {
+			background-color: #FFFFFF;
+			padding: 20px;
+			border: 1px solid #DDDDDD;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px #DDDDDD;
+		}
+		label {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		select {
+			font-size: 16px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			border: 1px solid #DDDDDD;
+			margin-bottom: 20px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		button {
+			background-color: #9E1D21;
+			color: #FFFFFF;
+			font-size: 18px;
+			font-weight: bold;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #7B1A1E;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align: center;">Solicitações a Equipe Multidisciplinar</h1>
+	<form>
+		<label for="abrir_solicitacao">Abrir Solicitação:</label>
+		<select id="abrir_solicitacao" name="abrir_solicitacao">
+			<option value="Solicitacao_Colaboradores_Interno">Solicitação Colaborador Interno</option>
+			<option value="Solicitacao_Polo">Solicitação Polo</option>
+			<option value="Solicitacao_Coordenacao_Curso">Solicitação Coordenação de Curso</option>
+			<option value="Solicitacao_Coordenacao_Geral">Solicitação Coordenação Geral</option>
+			<option value="Solicitacao_Docente_Graduacao">Solicitação Docente Graduação</option>
+			<option value="Solicitacao_Docente_Pos_Graduacao">Solicitação Docente Pós-Graduação</option>
+			<option value="solicitacao_outros">Solicitação Outros</option>
+		</select>
+		<button type="submit" id="enviar_email">Solicitar</button>
+	</form>
+<script>
+	document.getElementById("enviar_email").addEventListener("click", function(event) {
+		event.preventDefault();
+		var escolha = document.getElementById("abrir_solicitacao").value;
+		window.location.href = "mailto:artur@censupeg.com.br?subject=" + encodeURIComponent(escolha) + "&body=Olá, Artur! Gostaria de requerer uma " + encodeURIComponent(escolha) + ".";
+	});
+</script>
+</body>
+</html>
